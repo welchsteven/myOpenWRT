@@ -1,0 +1,50 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: true
+
+  tasks:
+    - name: Upgrade everything
+      apt:
+        name: '*'
+        state: latest
+        force_apt_get: True
+
+    - name: Install packages
+      ansible.builtin.package:
+        name:
+          - build-essential
+          - git
+          - gawk
+          - gcc-multilib
+          - flex
+          - gettext
+          - libncurses5-dev
+          - libssl-dev
+          - python3-distutils
+          - rsync
+          - unzip
+          - zlib1g-dev
+          - clang
+          - llvm
+          - libboost-dev
+          - cmake
+          - ccache
+          - curl
+          - file
+          - g++-multilib
+          - libdw-dev
+          - libelf-dev
+          - locales
+          - pv
+          - pwgen
+          - python3
+          - python3-pip
+          - qemu-utils
+          - rsync
+          - signify-openbsd
+          - subversion
+          - sudo
+          - swig
+          - wget
+        state: present
